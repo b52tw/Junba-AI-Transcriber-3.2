@@ -1,0 +1,14 @@
+峻爸 AI Transcriber v3.2 Hotfix
+
+修正日期：2026-10-01
+
+修正內容：
+1. 修正 app/core/worker.py 第 390/392 行 f-string 引號衝突。
+2. GitHub Actions 原本在「Source syntax and functional tests」失敗的 SyntaxError 已修正。
+3. 保留原 v3.2 自適應硬體、NPU/GPU/CPU 備援、執行監看與繁體中文介面功能。
+4. Workflow 仍位於正確路徑：.github/workflows/build-windows-v3.2.yml
+
+本機驗證：
+- python -m compileall：通過
+- pytest：26 passed, 1 skipped
+- Workflow YAML：可解析，job = build-windows

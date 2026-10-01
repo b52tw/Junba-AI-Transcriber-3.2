@@ -1,0 +1,21 @@
+Junba / 峻爸 AI Transcriber v3.2 Hotfix Validation Report
+Date: 2026-10-01
+
+Reason for hotfix:
+- GitHub Actions run 36809849040 failed at Source syntax and functional tests.
+- Root cause: nested single quotes inside an f-string in app/core/worker.py caused:
+  SyntaxError: f-string: unmatched '('
+
+Fix:
+- Moved effective model name into model_key.
+- Rewrote both signature f-strings with safe quoting and multiline composition.
+
+Validation performed in build workspace:
+PASS: python -m compileall main.py app tests
+PASS: pytest -q -> 26 passed, 1 skipped
+PASS: workflow YAML parse
+PASS: workflow path is .github/workflows/build-windows-v3.2.yml
+
+Next expected GitHub Actions behavior:
+- Source syntax and functional tests should pass this former failure point.
+- Build will then continue to GUI smoke test, portable build, OpenVINO DLL tests, self-tests, and artifacts.

@@ -1,0 +1,13 @@
+峻爸 AI Transcriber v3.2 Validation Report
+
+驗證目標：
+- Python 語法可編譯
+- 原既有單元測試
+- Gemini 503 暫時性錯誤重試
+- Gemini 3.8 Flash 高負載時切換 3.7 Flash
+- 非暫時性 400 錯誤不盲目重試
+- GitHub workflow 路徑正確
+- UI 使用 QScrollArea 避免工作流程區被壓縮
+
+注意：
+Gemini 真實 503 屬於遠端服務負載狀態，無法在離線驗證環境強制重現；本版以 mock 方式驗證重試／備援控制流，實際 API 仍以 Google 服務當下狀態為準。
